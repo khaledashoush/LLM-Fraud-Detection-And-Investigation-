@@ -1,0 +1,101 @@
+nohup: ignoring input
+2026-08-29 03:06:04 [INFO] [Load] processed_data/features_all.parquet
+2026-08-29 03:06:17 [INFO] [Load] xgb_L2: 286 features | 31,898,238 rows
+2026-08-29 03:06:41 [INFO] [Load] train 19,487,126 | val 5,520,883 | test 6,890,229
+2026-08-29 03:06:41 [INFO] [Load] illicit: train 15,713 | val 8,501 | test 11,016
+2026-08-29 03:06:41 [INFO] [Tune] Optuna 50 trials (seed=42)...
+[W 2026-08-29 03:06:58,243] Trial 0 failed with parameters: {'max_depth': 5, 'learning_rate': 0.044635901521768134, 'gamma': 0.36599697090570255, 'min_child_weight': 6, 'subsample': 0.6624074561769746, 'colsample_bytree': 0.662397808134481, 'reg_lambda': 0.0017073967431528124, 'scale_pos_weight': 611.3038129985093} because of the following error: XGBoostError('[03:06:56] /__w/xgboost/xgboost/src/data/gradient_index.h:99: Check failed: valid: Input data contains `inf` or a value too large, while `missing` is not set to `inf`\nStack trace:\n  [bt] (0) /home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/lib/libxgboost.so(+0x2c1a8c) [0x7629cf0c1a8c]\n  [bt] (1) /home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/lib/libxgboost.so(+0x663600) [0x7629cf463600]\n  [bt] (2) /home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/lib/libxgboost.so(+0x67a5aa) [0x7629cf47a5aa]\n  [bt] (3) /home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/lib/libxgboost.so(+0x67d3cb) [0x7629cf47d3cb]\n  [bt] (4) /home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/lib/libxgboost.so(+0x67e05d) [0x7629cf47e05d]\n  [bt] (5) /home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/lib/libxgboost.so(+0x5dadf1) [0x7629cf3dadf1]\n  [bt] (6) /home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/lib/libxgboost.so(XGQuantileDMatrixCreateFromCallback+0x178) [0x7629cefcf5a8]\n  [bt] (7) /home/jovyan/conda-envs/aml-research/lib/python3.11/lib-dynload/../../libffi.so.8(+0xa052) [0x762b30a1a052]\n  [bt] (8) /home/jovyan/conda-envs/aml-research/lib/python3.11/lib-dynload/../../libffi.so.8(+0x8b09) [0x762b30a18b09]\n\n').
+Traceback (most recent call last):
+  File "/home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/optuna/study/_optimize.py", line 206, in _run_trial
+    value_or_values = func(trial)
+                      ^^^^^^^^^^^
+  File "/home/jovyan/AML_Project/NoteBooks/Khaled/train_xgb.py", line 148, in objective
+    model.fit(X_train, y_train, eval_set=[(X_val, y_val)], verbose=False)
+  File "/home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/core.py", line 751, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "/home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/sklearn.py", line 1787, in fit
+    train_dmatrix, evals = _wrap_evaluation_matrices(
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/sklearn.py", line 700, in _wrap_evaluation_matrices
+    train_dmatrix = create_dmatrix(
+                    ^^^^^^^^^^^^^^^
+  File "/home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/sklearn.py", line 1257, in _create_dmatrix
+    return QuantileDMatrix(
+           ^^^^^^^^^^^^^^^^
+  File "/home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/core.py", line 751, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "/home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/core.py", line 1719, in __init__
+    self._init(
+  File "/home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/core.py", line 1785, in _init
+    _check_call(ret)
+  File "/home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/core.py", line 324, in _check_call
+    raise XGBoostError(py_str(_LIB.XGBGetLastError()))
+xgboost.core.XGBoostError: [03:06:56] /__w/xgboost/xgboost/src/data/gradient_index.h:99: Check failed: valid: Input data contains `inf` or a value too large, while `missing` is not set to `inf`
+Stack trace:
+  [bt] (0) /home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/lib/libxgboost.so(+0x2c1a8c) [0x7629cf0c1a8c]
+  [bt] (1) /home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/lib/libxgboost.so(+0x663600) [0x7629cf463600]
+  [bt] (2) /home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/lib/libxgboost.so(+0x67a5aa) [0x7629cf47a5aa]
+  [bt] (3) /home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/lib/libxgboost.so(+0x67d3cb) [0x7629cf47d3cb]
+  [bt] (4) /home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/lib/libxgboost.so(+0x67e05d) [0x7629cf47e05d]
+  [bt] (5) /home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/lib/libxgboost.so(+0x5dadf1) [0x7629cf3dadf1]
+  [bt] (6) /home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/lib/libxgboost.so(XGQuantileDMatrixCreateFromCallback+0x178) [0x7629cefcf5a8]
+  [bt] (7) /home/jovyan/conda-envs/aml-research/lib/python3.11/lib-dynload/../../libffi.so.8(+0xa052) [0x762b30a1a052]
+  [bt] (8) /home/jovyan/conda-envs/aml-research/lib/python3.11/lib-dynload/../../libffi.so.8(+0x8b09) [0x762b30a18b09]
+
+
+[W 2026-08-29 03:06:58,270] Trial 0 failed with value None.
+Traceback (most recent call last):
+  File "/home/jovyan/AML_Project/NoteBooks/Khaled/train_xgb.py", line 235, in <module>
+    main()
+  File "/home/jovyan/AML_Project/NoteBooks/Khaled/train_xgb.py", line 156, in main
+    study.optimize(objective, n_trials=args.trials)
+  File "/home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/optuna/study/study.py", line 516, in optimize
+    _optimize(
+  File "/home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/optuna/study/_optimize.py", line 68, in _optimize
+    _optimize_sequential(
+  File "/home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/optuna/study/_optimize.py", line 165, in _optimize_sequential
+    frozen_trial_id = _run_trial(study, func, catch)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/optuna/study/_optimize.py", line 263, in _run_trial
+    raise func_err
+  File "/home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/optuna/study/_optimize.py", line 206, in _run_trial
+    value_or_values = func(trial)
+                      ^^^^^^^^^^^
+  File "/home/jovyan/AML_Project/NoteBooks/Khaled/train_xgb.py", line 148, in objective
+    model.fit(X_train, y_train, eval_set=[(X_val, y_val)], verbose=False)
+  File "/home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/core.py", line 751, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "/home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/sklearn.py", line 1787, in fit
+    train_dmatrix, evals = _wrap_evaluation_matrices(
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/sklearn.py", line 700, in _wrap_evaluation_matrices
+    train_dmatrix = create_dmatrix(
+                    ^^^^^^^^^^^^^^^
+  File "/home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/sklearn.py", line 1257, in _create_dmatrix
+    return QuantileDMatrix(
+           ^^^^^^^^^^^^^^^^
+  File "/home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/core.py", line 751, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "/home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/core.py", line 1719, in __init__
+    self._init(
+  File "/home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/core.py", line 1785, in _init
+    _check_call(ret)
+  File "/home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/core.py", line 324, in _check_call
+    raise XGBoostError(py_str(_LIB.XGBGetLastError()))
+xgboost.core.XGBoostError: [03:06:56] /__w/xgboost/xgboost/src/data/gradient_index.h:99: Check failed: valid: Input data contains `inf` or a value too large, while `missing` is not set to `inf`
+Stack trace:
+  [bt] (0) /home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/lib/libxgboost.so(+0x2c1a8c) [0x7629cf0c1a8c]
+  [bt] (1) /home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/lib/libxgboost.so(+0x663600) [0x7629cf463600]
+  [bt] (2) /home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/lib/libxgboost.so(+0x67a5aa) [0x7629cf47a5aa]
+  [bt] (3) /home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/lib/libxgboost.so(+0x67d3cb) [0x7629cf47d3cb]
+  [bt] (4) /home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/lib/libxgboost.so(+0x67e05d) [0x7629cf47e05d]
+  [bt] (5) /home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/lib/libxgboost.so(+0x5dadf1) [0x7629cf3dadf1]
+  [bt] (6) /home/jovyan/conda-envs/aml-research/lib/python3.11/site-packages/xgboost/lib/libxgboost.so(XGQuantileDMatrixCreateFromCallback+0x178) [0x7629cefcf5a8]
+  [bt] (7) /home/jovyan/conda-envs/aml-research/lib/python3.11/lib-dynload/../../libffi.so.8(+0xa052) [0x762b30a1a052]
+  [bt] (8) /home/jovyan/conda-envs/aml-research/lib/python3.11/lib-dynload/../../libffi.so.8(+0x8b09) [0x762b30a18b09]
+
+

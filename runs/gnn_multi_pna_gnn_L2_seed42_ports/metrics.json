@@ -1,0 +1,24 @@
+{
+  "model": "multi_pna",
+  "feature_set": "gnn_L2",
+  "seed": 42,
+  "fanout": [
+    100,
+    100
+  ],
+  "batch_size": 2048,
+  "hidden": 20,
+  "ports_tds": true,
+  "test_passes": 2,
+  "threshold": 0.5918357372283936,
+  "best_val_f1": 0.6447988904299584,
+  "best_epoch": 5,
+  "test_f1_at_050": 0.571830813490849,
+  "test_precision_at_050": 0.8778425108062394,
+  "test_recall_at_050": 0.42401960784313725,
+  "test_f1_at_thr": 0.5589027368948456,
+  "test_precision_at_thr": 0.9012320743284185,
+  "test_recall_at_thr": 0.4050472040668119,
+  "test_pr_auc": 0.5260417653052366,
+  "test_coverage": 1.0
+}

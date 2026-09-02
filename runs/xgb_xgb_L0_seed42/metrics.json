@@ -1,0 +1,31 @@
+{
+  "feature_set": "xgb_L0",
+  "seed": 42,
+  "n_features": 274,
+  "threshold": 0.1480531245470047,
+  "best_iteration": 967,
+  "best_params": {
+    "max_depth": 9.0,
+    "learning_rate": 0.028438343509126045,
+    "reg_lambda": 16.15341943554182,
+    "scale_pos_weight": 1.4856835342627057,
+    "colsample_bytree": 0.7665960667257768,
+    "subsample": 0.9693948699109354
+  },
+  "tuning_time_min": 847.4,
+  "train_f1_at_050": 0.5251583710407239,
+  "train_f1_at_thr": 0.5390677456974238,
+  "train_precision_at_thr": 0.6060870947234583,
+  "train_recall_at_thr": 0.4853942595303252,
+  "train_pr_auc": 0.5289705060581124,
+  "val_f1_at_050": 0.5293870343899773,
+  "val_f1_at_thr": 0.5974325688735035,
+  "val_precision_at_thr": 0.7720410065237652,
+  "val_recall_at_thr": 0.4872367956710975,
+  "val_pr_auc": 0.5641784896442688,
+  "test_f1_at_050": 0.5924003707136237,
+  "test_f1_at_thr": 0.6447770633498472,
+  "test_precision_at_thr": 0.7686604674541342,
+  "test_recall_at_thr": 0.5552832244008714,
+  "test_pr_auc": 0.6436249475496035
+}

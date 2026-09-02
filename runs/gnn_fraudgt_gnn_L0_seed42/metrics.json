@@ -1,0 +1,30 @@
+{
+  "model": "fraudgt",
+  "feature_set": "gnn_L0",
+  "seed": 42,
+  "mode": "train",
+  "fanout": [
+    50,
+    50
+  ],
+  "batch_size": 2048,
+  "accum": 8,
+  "iters_per_epoch": 256,
+  "hidden": 64,
+  "heads": 8,
+  "ports_tds": true,
+  "threshold": 0.8901558518409729,
+  "head": "paper_eq9_concat",
+  "optim": "adamW_param_groups_no_decay_norms",
+  "selection": "best_f1_over_thresholds",
+  "best_val_f1": 0.6815501215561797,
+  "best_epoch": 143,
+  "test_f1_at_050": 0.5993090895583374,
+  "test_precision_at_050": 0.5071989940270355,
+  "test_recall_at_050": 0.7322984749455338,
+  "test_f1_at_thr": 0.7278651220521307,
+  "test_precision_at_thr": 0.8457932692307693,
+  "test_recall_at_thr": 0.6387981118373275,
+  "test_pr_auc": 0.7272557067317729,
+  "test_coverage": 0.9997271498523489
+}

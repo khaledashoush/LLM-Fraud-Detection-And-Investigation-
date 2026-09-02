@@ -1,0 +1,21 @@
+# Large data (reproduce via Preprocessing.py — download IBM AMLworld from Kaggle)
+processed_data/
+processed_data_*/
+gfp_temp_chunks/
+*.parquet
+*.pt
+*.npz
+*.ubj
+*.tar.gz
+
+# Checkpoints
+runs/**/model.pt
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+nohup.out
+wandb/
+
+# Keep: all .py, .log, .out, metrics.json, config.json, *.csv

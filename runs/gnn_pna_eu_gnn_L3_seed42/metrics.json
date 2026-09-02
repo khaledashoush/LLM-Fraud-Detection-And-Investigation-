@@ -1,0 +1,22 @@
+{
+  "model": "pna_eu",
+  "feature_set": "gnn_L3",
+  "seed": 42,
+  "fanout": [
+    100,
+    100
+  ],
+  "batch_size": 2048,
+  "test_passes": 2,
+  "threshold": 0.43038591742515564,
+  "best_val_f1": 0.6601345422638198,
+  "best_epoch": 14,
+  "test_f1_at_050": 0.5301484828921885,
+  "test_precision_at_050": 0.9177469825659366,
+  "test_recall_at_050": 0.37273057371096585,
+  "test_f1_at_thr": 0.5417090539165819,
+  "test_precision_at_thr": 0.9040747028862479,
+  "test_recall_at_thr": 0.3867102396514161,
+  "test_pr_auc": 0.5107410280291896,
+  "test_coverage": 0.9999690866588034
+}

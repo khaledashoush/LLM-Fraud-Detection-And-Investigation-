@@ -1,0 +1,127 @@
+2026-08-29 03:06:04 [INFO] [Load] processed_data/features_all.parquet
+2026-08-29 03:06:17 [INFO] [Load] xgb_L2: 286 features | 31,898,238 rows
+2026-08-29 03:06:41 [INFO] [Load] train 19,487,126 | val 5,520,883 | test 6,890,229
+2026-08-29 03:06:41 [INFO] [Load] illicit: train 15,713 | val 8,501 | test 11,016
+2026-08-29 03:06:41 [INFO] [Tune] Optuna 50 trials (seed=42)...
+2026-08-29 03:08:20 [INFO] [Load] processed_data/features_all.parquet
+2026-08-29 03:09:12 [INFO] [Load] xgb_L2: 286 features | 31,898,238 rows
+2026-08-29 03:09:29 [INFO] [Load] train 19,487,126 | val 5,520,883 | test 6,890,229
+2026-08-29 03:09:29 [INFO] [Load] illicit: train 15,713 | val 8,501 | test 11,016
+2026-08-29 03:09:29 [INFO] [Tune] Optuna 50 trials (seed=42)...
+2026-08-29 03:22:04 [INFO] [Load] processed_data/features_all.parquet
+2026-08-29 03:22:24 [INFO] [Clean] مفيش قيم inf ✓
+2026-08-29 03:22:24 [INFO] [Load] xgb_L2: 286 features | 31,898,238 rows
+2026-08-29 03:22:40 [INFO] [Load] train 19,487,126 | val 5,520,883 | test 6,890,229
+2026-08-29 03:22:40 [INFO] [Load] illicit: train 15,713 | val 8,501 | test 11,016
+2026-08-29 03:22:40 [INFO] [Tune] Optuna 50 trials (seed=42)...
+2026-08-29 03:27:32 [INFO] [Load] processed_data/features_all.parquet
+2026-08-29 03:28:10 [WARNING] [Clean] 2 قيمة (inf أو >float32max=3.40e+38) في 1 عمود → تحويلها لـ NaN
+2026-08-29 03:28:10 [WARNING] [Clean] الأعمدة المتأثرة (أمثلة): [('gfp_feature_258', 2)]
+2026-08-29 03:28:10 [INFO] [Load] xgb_L2: 286 features | 31,898,238 rows
+2026-08-29 03:28:24 [INFO] [Clean] فحص float32 النهائي ✓
+2026-08-29 03:28:40 [INFO] [Load] train 19,487,126 | val 5,520,883 | test 6,890,229
+2026-08-29 03:28:40 [INFO] [Load] illicit: train 15,713 | val 8,501 | test 11,016
+2026-08-29 03:28:40 [INFO] [Tune] Optuna 50 trials (seed=42)...
+2026-08-29 03:42:08 [INFO] [Load] processed_data/features_all.parquet
+2026-08-29 03:43:17 [WARNING] [Clean] 2 قيمة (inf أو >float32max=3.40e+38) في 1 عمود → تحويلها لـ NaN
+2026-08-29 03:43:17 [WARNING] [Clean] الأعمدة المتأثرة: [('gfp_feature_258', 2)]
+2026-08-29 03:43:17 [INFO] [Load] xgb_L2: 286 features | 31,898,238 rows
+2026-08-29 03:43:46 [INFO] [Load] train 19,487,126 | val 5,520,883 | test 6,890,229
+2026-08-29 03:43:46 [INFO] [Load] illicit: train 15,713 | val 8,501 | test 11,016
+2026-08-29 03:43:46 [INFO] [Mem] X_all = 36.5 GB (RAM) — CPU mode, n_jobs=128
+2026-08-29 03:43:46 [INFO] [Tune] Optuna 50 trials (seed=42) | CPU x128
+2026-08-29 18:59:13 [INFO] [Tune] best val F1: 0.6891
+2026-08-29 18:59:13 [INFO] [Tune] best params: {'max_depth': 8, 'learning_rate': 0.013006273094522035, 'gamma': 0.3127343644435275, 'min_child_weight': 5, 'subsample': 0.7635231412791496, 'colsample_bytree': 0.9270239075471184, 'reg_lambda': 0.008880128363757263, 'scale_pos_weight': 50.03441381949553}
+2026-08-31 15:05:58 [INFO] [Load] processed_data/features_all.parquet
+2026-08-31 15:06:37 [WARNING] [Clean] 2 قيمة (inf أو >float32max=3.40e+38) في 1 عمود → تحويلها لـ NaN
+2026-08-31 15:06:37 [WARNING] [Clean] الأعمدة المتأثرة: [('gfp_feature_258', 2)]
+2026-08-31 15:06:37 [INFO] [Load] xgb_L0: 274 features | 31,898,238 rows
+2026-08-31 15:07:19 [INFO] [Load] train 19,487,126 | val 5,520,883 | test 6,890,229
+2026-08-31 15:07:19 [INFO] [Load] illicit: train 15,713 | val 8,501 | test 11,016
+2026-08-31 15:07:19 [INFO] [Mem] X_all = 35.0 GB (RAM) — CPU mode, n_jobs=128
+2026-08-31 15:07:19 [INFO] [Tune] Optuna 50 trials (seed=42) | CPU x128
+2026-09-01 04:51:38 [INFO] [Tune] best val F1: 0.5974
+2026-09-01 04:51:38 [INFO] [Tune] best params: {'max_depth': 9, 'learning_rate': 0.028438343509126045, 'reg_lambda': 16.15341943554182, 'scale_pos_weight': 1.4856835342627057, 'colsample_bytree': 0.7665960667257768, 'subsample': 0.9693948699109354}
+2026-09-01 04:51:38 [INFO] [Train] final model...
+2026-09-01 05:13:09 [INFO] [Train] best_iteration: 967
+2026-09-01 05:13:12 [INFO] [Threshold] 0.1481 (من val)
+2026-09-01 05:13:12 [INFO] [Eval] predicting (in batches)...
+2026-09-01 05:13:25 [INFO] 
+======================================================================
+2026-09-01 05:13:25 [INFO]                    F1@0.5   F1@thr     Prec      Rec   PR-AUC
+2026-09-01 05:13:57 [INFO] train              0.5252   0.5391   0.6061   0.4854   0.5290
+2026-09-01 05:14:06 [INFO] val                0.5294   0.5974   0.7720   0.4872   0.5642
+2026-09-01 05:14:17 [INFO] test               0.5924   0.6448   0.7687   0.5553   0.6436
+2026-09-01 05:14:17 [INFO] ======================================================================
+2026-09-01 05:14:17 [INFO] [Diag] val−test F1 gap: -0.0473 (سليم)
+2026-09-01 05:14:21 [INFO] [Save] ✓ run directory: runs/xgb_xgb_L0_seed42
+2026-09-01 05:14:21 [INFO] ✅ Completed in 848.4 min
+2026-09-01 05:14:21 [INFO] 
+[Importance] Top 20:
+            gain
+f9    793.172058
+f18   792.841003
+f76   150.307617
+f2     77.424347
+f258   72.765549
+f204   70.084831
+f203   68.326836
+f48    64.882462
+f193   61.090508
+f49    60.960747
+f106   58.648685
+f50    58.120583
+f164   56.756073
+f202   45.735016
+f223   44.608379
+f51    43.271534
+f217   36.172924
+f214   30.735794
+f1     28.890659
+f14    28.539942
+2026-09-01 11:22:54 [INFO] [Mode] DEPLOYMENT — validated winner xgb_L2 (documented test F1@thr = 0.7501) — NO re-tuning
+2026-09-01 11:22:54 [INFO] [Load] processed_data/features_all.parquet
+2026-09-01 11:23:51 [WARNING] [Clean] 2 values (inf or >float32max=3.40e+38) in 1 columns → converted to NaN
+2026-09-01 11:23:51 [WARNING] [Clean] affected columns: [('gfp_feature_258', 2)]
+2026-09-01 11:23:51 [INFO] [Load] xgb_L2: 286 features | 31,898,238 rows
+2026-09-01 11:24:20 [INFO] [Load] train 19,487,126 | val 5,520,883 | test 6,890,229
+2026-09-01 11:24:20 [INFO] [Load] illicit: train 15,713 | val 8,501 | test 11,016
+2026-09-01 11:24:20 [INFO] [Mem] X_all = 36.5 GB (RAM) — CPU mode, n_jobs=128
+2026-09-01 11:24:20 [INFO] [Params] loaded from runs/xgb_xgb_L2_seed42/metrics.json (tuning val F1 = 0.6899) — skipping Optuna
+2026-09-01 11:24:20 [INFO] [Train] final model...
+2026-09-01 11:47:06 [INFO] [Train] best_iteration: 1176
+2026-09-01 11:47:09 [INFO] [Threshold] 0.8284 (from val)
+2026-09-01 11:47:09 [INFO] [Eval] predicting (in batches)...
+2026-09-01 11:47:23 [INFO] 
+======================================================================
+2026-09-01 11:47:23 [INFO]                    F1@0.5   F1@thr     Prec      Rec   PR-AUC
+2026-09-01 11:47:55 [INFO] train              0.2647   0.5657   0.6063   0.5303   0.6068
+2026-09-01 11:48:04 [INFO] val                0.3884   0.6899   0.9129   0.5545   0.6706
+2026-09-01 11:48:16 [INFO] test               0.5162   0.7501   0.9196   0.6334   0.7539
+2026-09-01 11:48:16 [INFO] ======================================================================
+2026-09-01 11:48:16 [INFO] [Diag] val−test F1 gap: -0.0602 (WARNING: large gap)
+2026-09-01 11:48:20 [INFO] [Save] ✓ run directory: runs/xgb_xgb_L2_seed42_deploy
+2026-09-01 11:48:20 [INFO] ✅ Completed in 25.4 min
+2026-09-01 11:48:20 [INFO] 
+[Importance] Top 20:
+              gain
+f30   24650.820312
+f9    24380.259766
+f88    5146.477051
+f11    2166.645264
+f216   1993.112427
+f2     1977.665527
+f270   1833.260742
+f215   1769.334717
+f14    1726.695312
+f12    1431.901245
+f10    1255.193604
+f118   1231.077393
+f205   1211.348267
+f20    1175.958008
+f176    852.612427
+f235    797.572998
+f25     708.462097
+f26     701.833191
+f22     636.151245
+f1      574.974731

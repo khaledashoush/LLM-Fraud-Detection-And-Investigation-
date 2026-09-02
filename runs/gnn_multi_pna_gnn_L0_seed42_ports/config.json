@@ -1,0 +1,23 @@
+{
+  "feature_set": "gnn_L0",
+  "seed": 42,
+  "fanout": [
+    100,
+    100
+  ],
+  "batch_size": 2048,
+  "hidden": 20,
+  "ports_tds": true,
+  "feature_cols": [
+    "basic_log_amount_paid",
+    "basic_log_amount_received",
+    "basic_amount_ratio",
+    "basic_hour_sin",
+    "basic_hour_cos",
+    "basic_dow_sin",
+    "basic_dow_cos",
+    "basic_receiving_currency_code",
+    "basic_payment_currency_code",
+    "basic_payment_format_code"
+  ]
+}
