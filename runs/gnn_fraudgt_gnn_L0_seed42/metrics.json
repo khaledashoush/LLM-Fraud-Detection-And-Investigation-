@@ -2,10 +2,10 @@
   "model": "fraudgt",
   "feature_set": "gnn_L0",
   "seed": 42,
-  "mode": "train",
+  "mode": "inference",
   "fanout": [
-    50,
-    50
+    100,
+    100
   ],
   "batch_size": 2048,
   "accum": 8,
@@ -13,18 +13,18 @@
   "hidden": 64,
   "heads": 8,
   "ports_tds": true,
-  "threshold": 0.8901558518409729,
+  "threshold": 0.8090910315513611,
   "head": "paper_eq9_concat",
   "optim": "adamW_param_groups_no_decay_norms",
   "selection": "best_f1_over_thresholds",
-  "best_val_f1": 0.6815501215561797,
-  "best_epoch": 143,
-  "test_f1_at_050": 0.5993090895583374,
-  "test_precision_at_050": 0.5071989940270355,
-  "test_recall_at_050": 0.7322984749455338,
-  "test_f1_at_thr": 0.7278651220521307,
-  "test_precision_at_thr": 0.8457932692307693,
-  "test_recall_at_thr": 0.6387981118373275,
-  "test_pr_auc": 0.7272557067317729,
-  "test_coverage": 0.9997271498523489
+  "best_val_f1": 0.686903132917512,
+  "best_epoch": 201,
+  "test_f1_at_050": 0.6525746589652206,
+  "test_precision_at_050": 0.5946248600223965,
+  "test_recall_at_050": 0.7230392156862745,
+  "test_f1_at_thr": 0.7290842637560707,
+  "test_precision_at_thr": 0.8128837780506866,
+  "test_recall_at_thr": 0.6609477124183006,
+  "test_pr_auc": 0.7254341256751233,
+  "test_coverage": 1.0
 }

@@ -1,0 +1,221 @@
+{
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "version": "v3",
+  "n_generated": 10,
+  "n_valid": 10,
+  "n_aggressive": 0,
+  "avg_word_count": 332.0,
+  "elapsed_min": 2.0,
+  "results": [
+    {
+      "transaction_id": 30816087,
+      "pattern": "FAN-OUT",
+      "is_valid": true,
+      "word_count": 346,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 30881761,
+      "pattern": "STACK",
+      "is_valid": true,
+      "word_count": 319,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 29296840,
+      "pattern": "FAN-OUT",
+      "is_valid": true,
+      "word_count": 303,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 30743455,
+      "pattern": "RANDOM",
+      "is_valid": true,
+      "word_count": 330,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31892801,
+      "pattern": "CYCLE",
+      "is_valid": true,
+      "word_count": 328,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31893345,
+      "pattern": "BIPARTITE",
+      "is_valid": true,
+      "word_count": 333,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31894742,
+      "pattern": "STACK",
+      "is_valid": true,
+      "word_count": 303,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31897123,
+      "pattern": "GATHER-SCATTER",
+      "is_valid": true,
+      "word_count": 346,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 28058375,
+      "pattern": "STACK",
+      "is_valid": true,
+      "word_count": 351,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 27268710,
+      "pattern": "CYCLE",
+      "is_valid": true,
+      "word_count": 360,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "has_aggressive_recommendations": false
+    }
+  ]
+}

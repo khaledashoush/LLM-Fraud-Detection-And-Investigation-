@@ -1,0 +1,837 @@
+{
+  "metadata": {
+    "n_reports": 10,
+    "evaluation_time_min": 0.8,
+    "llm_judge_used": true,
+    "framework_version": "v1",
+    "paper_refs": {
+      "layer1": "LLMOps 2026, Section 4 (schema-valid goodput)",
+      "layer2": "GNNExplainer NeurIPS'19 Sec 4.1 + xFraud PVLDB'22 Sec 3.4",
+      "layer3_4": "LLMOps 2026, Section 4.1 (LLM-as-Judge) + GraphXAIN 2025, Section 6",
+      "sar_format": "FinCEN 5 W's + IBM NeurIPS'23, Section 2.2"
+    }
+  },
+  "aggregate": {
+    "n_reports": 10,
+    "layer1_summary": {
+      "avg_pass_rate": 1.0,
+      "n_passed": 10,
+      "pass_rate": 1.0
+    },
+    "layer2_summary": {
+      "avg_faithfulness": 0.972,
+      "avg_coverage": 0.928,
+      "avg_accuracy": 1.0
+    },
+    "layer34_summary": {
+      "compliance_score": 8.0,
+      "professional_tone": 4.0,
+      "actionability": 4.0,
+      "understandability": 4.4,
+      "insightfulness": 3.4,
+      "convincingness": 4.3,
+      "communicability": 4.4
+    },
+    "overall_scores": {
+      "faithfulness": 0.972,
+      "compliance": 8.0,
+      "narrative_quality": 4.12,
+      "overall_score_10": 8.76
+    },
+    "per_pattern": {
+      "FAN-OUT": {
+        "n": 2,
+        "avg_faithfulness": 1.0,
+        "avg_compliance": 8.0,
+        "avg_narrative_quality": 4.25
+      },
+      "STACK": {
+        "n": 3,
+        "avg_faithfulness": 0.962,
+        "avg_compliance": 8.0,
+        "avg_narrative_quality": 4.08
+      },
+      "RANDOM": {
+        "n": 1,
+        "avg_faithfulness": 1.0,
+        "avg_compliance": 8.0,
+        "avg_narrative_quality": 3.75
+      },
+      "CYCLE": {
+        "n": 2,
+        "avg_faithfulness": 0.943,
+        "avg_compliance": 8.0,
+        "avg_narrative_quality": 4.25
+      },
+      "BIPARTITE": {
+        "n": 1,
+        "avg_faithfulness": 1.0,
+        "avg_compliance": 8.0,
+        "avg_narrative_quality": 3.75
+      },
+      "GATHER-SCATTER": {
+        "n": 1,
+        "avg_faithfulness": 0.943,
+        "avg_compliance": 8.0,
+        "avg_narrative_quality": 4.5
+      }
+    }
+  },
+  "per_report": [
+    {
+      "transaction_id": 30816087,
+      "pattern": "FAN-OUT",
+      "layer1": {
+        "checks": {
+          "schema_valid": true,
+          "fields_complete": true,
+          "no_hallucination": true,
+          "no_aggressive_language": true,
+          "length_ok": true
+        },
+        "sections_found": {
+          "executive summary": true,
+          "subject information": true,
+          "suspicious activity": true,
+          "temporal analysis": true,
+          "network analysis": true,
+          "suspicion basis": true,
+          "recommended actions": true
+        },
+        "n_sections": 7,
+        "sections_detail": {
+          "executive summary": true,
+          "subject information": true,
+          "suspicious activity": true,
+          "temporal analysis": true,
+          "network analysis": true,
+          "suspicion basis": true,
+          "recommended actions": true
+        },
+        "word_count": 346,
+        "aggressive_phrases": [],
+        "pass_rate": 1.0,
+        "passed": true
+      },
+      "layer2": {
+        "coverage": 1.0,
+        "accuracy": 1.0,
+        "fabrication_rate": 0,
+        "fabricated_claims": [],
+        "evidence_items": [
+          "source_account",
+          "destination_account",
+          "pattern",
+          "amount",
+          "network_activity",
+          "related_transactions",
+          "model_reasoning"
+        ],
+        "evidence_mentioned": [
+          "source_account",
+          "destination_account",
+          "pattern",
+          "amount",
+          "network_activity",
+          "related_transactions",
+          "model_reasoning"
+        ],
+        "evidence_missed": [],
+        "overall_faithfulness": 1.0
+      },
+      "layer34": {
+        "scores": {
+          "compliance_score": 8,
+          "professional_tone": 4,
+          "actionability": 4,
+          "understandability": 5,
+          "insightfulness": 4,
+          "convincingness": 5,
+          "communicability": 5
+        },
+        "rationale": "The report generally follows the SAR format, addressing the 5 W's, but could be more detailed in the \"When\" section. The language is mostly professional, but some sentences could be rephrased for better clarity. The recommendations are specific and practical, but could be more detailed in terms of next steps. The report is easy to understand, provides some analytical insights, and the evidence supports the conclusions. The report is well-organized and suitable for sharing with management and regulators.",
+        "raw": "COMPLIANCE_SCORE: 8\nPROFESSIONAL_TONE: 4\nACTIONABILITY: 4\nUNDERSTANDABILITY: 5\nINSIGHTFULNESS: 4\nCONVINCINGNESS: 5\nCOMMUNICABILITY: 5\nRATIONALE: \nThe report generally follows the SAR format, addressing the 5 W's, but could be more detailed in the \"When\" section. The language is mostly professional, but some sentences could be rephrased for better clarity. The recommendations are specific and practical, but could be more detailed in terms of next steps. The report is easy to understand, provides some analytical insights, and the evidence supports the conclusions. The report is well-organized and suitable for sharing with management and regulators."
+      }
+    },
+    {
+      "transaction_id": 30881761,
+      "pattern": "STACK",
+      "layer1": {
+        "checks": {
+          "schema_valid": true,
+          "fields_complete": true,
+          "no_hallucination": true,
+          "no_aggressive_language": true,
+          "length_ok": true
+        },
+        "sections_found": {
+          "executive summary": true,
+          "subject information": true,
+          "suspicious activity": true,
+          "temporal analysis": true,
+          "network analysis": true,
+          "suspicion basis": true,
+          "recommended actions": true
+        },
+        "n_sections": 7,
+        "sections_detail": {
+          "executive summary": true,
+          "subject information": true,
+          "suspicious activity": true,
+          "temporal analysis": true,
+          "network analysis": true,
+          "suspicion basis": true,
+          "recommended actions": true
+        },
+        "word_count": 319,
+        "aggressive_phrases": [],
+        "pass_rate": 1.0,
+        "passed": true
+      },
+      "layer2": {
+        "coverage": 1.0,
+        "accuracy": 1.0,
+        "fabrication_rate": 0,
+        "fabricated_claims": [],
+        "evidence_items": [
+          "source_account",
+          "destination_account",
+          "pattern",
+          "amount",
+          "network_activity",
+          "related_transactions",
+          "model_reasoning"
+        ],
+        "evidence_mentioned": [
+          "source_account",
+          "destination_account",
+          "pattern",
+          "amount",
+          "network_activity",
+          "related_transactions",
+          "model_reasoning"
+        ],
+        "evidence_missed": [],
+        "overall_faithfulness": 1.0
+      },
+      "layer34": {
+        "scores": {
+          "compliance_score": 8,
+          "professional_tone": 4,
+          "actionability": 4,
+          "understandability": 4,
+          "insightfulness": 3,
+          "convincingness": 4,
+          "communicability": 4
+        },
+        "rationale": "The report generally follows the SAR format, addressing the 5 W's, but could benefit from more detail on the \"Who\" aspect. The language is mostly professional, but some sections could be more concise. The recommendations are practical but could be more specific. The report is clear and easy to understand, but could provide more analytical insights. The evidence supports the conclusions, but the logical flow could be improved. The report is well-organized and suitable for sharing with management/regulators.",
+        "raw": "COMPLIANCE_SCORE: 8\nPROFESSIONAL_TONE: 4\nACTIONABILITY: 4\nUNDERSTANDABILITY: 4\nINSIGHTFULNESS: 3\nCONVINCINGNESS: 4\nCOMMUNICABILITY: 4\nRATIONALE: The report generally follows the SAR format, addressing the 5 W's, but could benefit from more detail on the \"Who\" aspect. The language is mostly professional, but some sections could be more concise. The recommendations are practical but could be more specific. The report is clear and easy to understand, but could provide more analytical insights. The evidence supports the conclusions, but the logical flow could be improved. The report is well-organized and suitable for sharing with management/regulators."
+      }
+    },
+    {
+      "transaction_id": 29296840,
+      "pattern": "FAN-OUT",
+      "layer1": {
+        "checks": {
+          "schema_valid": true,
+          "fields_complete": true,
+          "no_hallucination": true,
+          "no_aggressive_language": true,
+          "length_ok": true
+        },
+        "sections_found": {
+          "executive summary": true,
+          "subject information": true,
+          "suspicious activity": true,
+          "temporal analysis": true,
+          "network analysis": true,
+          "suspicion basis": true,
+          "recommended actions": true
+        },
+        "n_sections": 7,
+        "sections_detail": {
+          "executive summary": true,
+          "subject information": true,
+          "suspicious activity": true,
+          "temporal analysis": true,
+          "network analysis": true,
+          "suspicion basis": true,
+          "recommended actions": true
+        },
+        "word_count": 303,
+        "aggressive_phrases": [],
+        "pass_rate": 1.0,
+        "passed": true
+      },
+      "layer2": {
+        "coverage": 1.0,
+        "accuracy": 1.0,
+        "fabrication_rate": 0,
+        "fabricated_claims": [],
+        "evidence_items": [
+          "source_account",
+          "destination_account",
+          "pattern",
+          "amount",
+          "network_activity",
+          "related_transactions",
+          "model_reasoning"
+        ],
+        "evidence_mentioned": [
+          "source_account",
+          "destination_account",
+          "pattern",
+          "amount",
+          "network_activity",
+          "related_transactions",
+          "model_reasoning"
+        ],
+        "evidence_missed": [],
+        "overall_faithfulness": 1.0
+      },
+      "layer34": {
+        "scores": {
+          "compliance_score": 8,
+          "professional_tone": 4,
+          "actionability": 4,
+          "understandability": 4,
+          "insightfulness": 3,
+          "convincingness": 4,
+          "communicability": 4
+        },
+        "rationale": "The report generally follows the SAR format, addressing the 5 W's, but could be more detailed in the \"Who\" section. The language is mostly formal, but some phrases, such as \"potential money laundering scheme,\" could be rephrased for a more objective tone. The recommendations are specific and practical, but could be more proportionate to the evidence. The report is clear and concise, but could benefit from more analytical insights connecting the evidence to its significance. The evidence supports the conclusions, but the logical flow could be improved. The report is well-organized and professional, making it suitable for sharing with management and regulators.",
+        "raw": "COMPLIANCE_SCORE: 8\nPROFESSIONAL_TONE: 4\nACTIONABILITY: 4\nUNDERSTANDABILITY: 4\nINSIGHTFULNESS: 3\nCONVINCINGNESS: 4\nCOMMUNICABILITY: 4\nRATIONALE: \nThe report generally follows the SAR format, addressing the 5 W's, but could be more detailed in the \"Who\" section. The language is mostly formal, but some phrases, such as \"potential money laundering scheme,\" could be rephrased for a more objective tone. The recommendations are specific and practical, but could be more proportionate to the evidence. The report is clear and concise, but could benefit from more analytical insights connecting the evidence to its significance. The evidence supports the conclusions, but the logical flow could be improved. The report is well-organized and professional, making it suitable for sharing with management and regulators."
+      }
+    },
+    {
+      "transaction_id": 30743455,
+      "pattern": "RANDOM",
+      "layer1": {
+        "checks": {
+          "schema_valid": true,
+          "fields_complete": true,
+          "no_hallucination": true,
+          "no_aggressive_language": true,
+          "length_ok": true
+        },
+        "sections_found": {
+          "executive summary": true,
+          "subject information": true,
+          "suspicious activity": true,
+          "temporal analysis": true,
+          "network analysis": true,
+          "suspicion basis": true,
+          "recommended actions": true
+        },
+        "n_sections": 7,
+        "sections_detail": {
+          "executive summary": true,
+          "subject information": true,
+          "suspicious activity": true,
+          "temporal analysis": true,
+          "network analysis": true,
+          "suspicion basis": true,
+          "recommended actions": true
+        },
+        "word_count": 330,
+        "aggressive_phrases": [],
+        "pass_rate": 1.0,
+        "passed": true
+      },
+      "layer2": {
+        "coverage": 1.0,
+        "accuracy": 1.0,
+        "fabrication_rate": 0,
+        "fabricated_claims": [],
+        "evidence_items": [
+          "source_account",
+          "destination_account",
+          "pattern",
+          "amount",
+          "network_activity",
+          "related_transactions",
+          "model_reasoning"
+        ],
+        "evidence_mentioned": [
+          "source_account",
+          "destination_account",
+          "pattern",
+          "amount",
+          "network_activity",
+          "related_transactions",
+          "model_reasoning"
+        ],
+        "evidence_missed": [],
+        "overall_faithfulness": 1.0
+      },
+      "layer34": {
+        "scores": {
+          "compliance_score": 8,
+          "professional_tone": 4,
+          "actionability": 4,
+          "understandability": 4,
+          "insightfulness": 3,
+          "convincingness": 4,
+          "communicability": 4
+        },
+        "rationale": "The report generally follows the SAR format, addressing the 5 W's, but could be more detailed in the \"Who\" section. The language is mostly professional, but some phrases, such as \"moderate transaction\" and \"high risk of money laundering,\" could be more specific. The recommendations are practical but could be more specific in terms of actions to be taken. The report is clear and easy to understand, but could benefit from more analytical insights. The evidence supports the conclusions, but the logical flow could be improved. The report is well-organized and suitable for sharing with management and regulators.",
+        "raw": "COMPLIANCE_SCORE: 8\nPROFESSIONAL_TONE: 4\nACTIONABILITY: 4\nUNDERSTANDABILITY: 4\nINSIGHTFULNESS: 3\nCONVINCINGNESS: 4\nCOMMUNICABILITY: 4\nRATIONALE: \nThe report generally follows the SAR format, addressing the 5 W's, but could be more detailed in the \"Who\" section. The language is mostly professional, but some phrases, such as \"moderate transaction\" and \"high risk of money laundering,\" could be more specific. The recommendations are practical but could be more specific in terms of actions to be taken. The report is clear and easy to understand, but could benefit from more analytical insights. The evidence supports the conclusions, but the logical flow could be improved. The report is well-organized and suitable for sharing with management and regulators."
+      }
+    },
+    {
+      "transaction_id": 31892801,
+      "pattern": "CYCLE",
+      "layer1": {
+        "checks": {
+          "schema_valid": true,
+          "fields_complete": true,
+          "no_hallucination": true,
+          "no_aggressive_language": true,
+          "length_ok": true
+        },
+        "sections_found": {
+          "executive summary": true,
+          "subject information": true,
+          "suspicious activity": true,
+          "temporal analysis": true,
+          "network analysis": true,
+          "suspicion basis": true,
+          "recommended actions": true
+        },
+        "n_sections": 7,
+        "sections_detail": {
+          "executive summary": true,
+          "subject information": true,
+          "suspicious activity": true,
+          "temporal analysis": true,
+          "network analysis": true,
+          "suspicion basis": true,
+          "recommended actions": true
+        },
+        "word_count": 328,
+        "aggressive_phrases": [],
+        "pass_rate": 1.0,
+        "passed": true
+      },
+      "layer2": {
+        "coverage": 0.857,
+        "accuracy": 1.0,
+        "fabrication_rate": 0,
+        "fabricated_claims": [],
+        "evidence_items": [
+          "source_account",
+          "destination_account",
+          "pattern",
+          "amount",
+          "network_activity",
+          "related_transactions",
+          "model_reasoning"
+        ],
+        "evidence_mentioned": [
+          "source_account",
+          "destination_account",
+          "pattern",
+          "network_activity",
+          "related_transactions",
+          "model_reasoning"
+        ],
+        "evidence_missed": [
+          "amount"
+        ],
+        "overall_faithfulness": 0.943
+      },
+      "layer34": {
+        "scores": {
+          "compliance_score": 8,
+          "professional_tone": 4,
+          "actionability": 4,
+          "understandability": 5,
+          "insightfulness": 4,
+          "convincingness": 5,
+          "communicability": 5
+        },
+        "rationale": "The report generally follows the SAR format, addressing the 5 W's, but could be more detailed in the \"Who\" section. The language is mostly professional, but some phrases, such as \"high risk of money laundering,\" could be more objective. The recommendations are specific and practical but could be more proportionate to the evidence. The report is clear and easy to understand, providing some analytical insights into the CYCLE pattern. The evidence supports the conclusions, and the report is well-organized and suitable for sharing with management and regulators.",
+        "raw": "COMPLIANCE_SCORE: 8\nPROFESSIONAL_TONE: 4\nACTIONABILITY: 4\nUNDERSTANDABILITY: 5\nINSIGHTFULNESS: 4\nCONVINCINGNESS: 5\nCOMMUNICABILITY: 5\nRATIONALE: \nThe report generally follows the SAR format, addressing the 5 W's, but could be more detailed in the \"Who\" section. The language is mostly professional, but some phrases, such as \"high risk of money laundering,\" could be more objective. The recommendations are specific and practical but could be more proportionate to the evidence. The report is clear and easy to understand, providing some analytical insights into the CYCLE pattern. The evidence supports the conclusions, and the report is well-organized and suitable for sharing with management and regulators."
+      }
+    },
+    {
+      "transaction_id": 31893345,
+      "pattern": "BIPARTITE",
+      "layer1": {
+        "checks": {
+          "schema_valid": true,
+          "fields_complete": true,
+          "no_hallucination": true,
+          "no_aggressive_language": true,
+          "length_ok": true
+        },
+        "sections_found": {
+          "executive summary": true,
+          "subject information": true,
+          "suspicious activity": true,
+          "temporal analysis": true,
+          "network analysis": true,
+          "suspicion basis": true,
+          "recommended actions": true
+        },
+        "n_sections": 7,
+        "sections_detail": {
+          "executive summary": true,
+          "subject information": true,
+          "suspicious activity": true,
+          "temporal analysis": true,
+          "network analysis": true,
+          "suspicion basis": true,
+          "recommended actions": true
+        },
+        "word_count": 333,
+        "aggressive_phrases": [],
+        "pass_rate": 1.0,
+        "passed": true
+      },
+      "layer2": {
+        "coverage": 1.0,
+        "accuracy": 1.0,
+        "fabrication_rate": 0,
+        "fabricated_claims": [],
+        "evidence_items": [
+          "source_account",
+          "destination_account",
+          "pattern",
+          "amount",
+          "network_activity",
+          "related_transactions",
+          "model_reasoning"
+        ],
+        "evidence_mentioned": [
+          "source_account",
+          "destination_account",
+          "pattern",
+          "amount",
+          "network_activity",
+          "related_transactions",
+          "model_reasoning"
+        ],
+        "evidence_missed": [],
+        "overall_faithfulness": 1.0
+      },
+      "layer34": {
+        "scores": {
+          "compliance_score": 8,
+          "professional_tone": 4,
+          "actionability": 4,
+          "understandability": 4,
+          "insightfulness": 3,
+          "convincingness": 4,
+          "communicability": 4
+        },
+        "rationale": "The report generally follows the SAR format, addressing the 5 W's, but could be more detailed in the \"Who\" section. The language is mostly professional, but some phrases, such as \"raises suspicion,\" could be more objective. The recommendations are specific and practical but could be more proportionate to the evidence. The report is clear and concise, but some technical terms, like \"FAN-IN\" and \"FAN-OUT,\" might require explanation for non-technical readers. The evidence supports the conclusions, but the analysis could be more in-depth. The report is well-organized and suitable for sharing with management and regulators.",
+        "raw": "COMPLIANCE_SCORE: 8\nPROFESSIONAL_TONE: 4\nACTIONABILITY: 4\nUNDERSTANDABILITY: 4\nINSIGHTFULNESS: 3\nCONVINCINGNESS: 4\nCOMMUNICABILITY: 4\nRATIONALE: The report generally follows the SAR format, addressing the 5 W's, but could be more detailed in the \"Who\" section. The language is mostly professional, but some phrases, such as \"raises suspicion,\" could be more objective. The recommendations are specific and practical but could be more proportionate to the evidence. The report is clear and concise, but some technical terms, like \"FAN-IN\" and \"FAN-OUT,\" might require explanation for non-technical readers. The evidence supports the conclusions, but the analysis could be more in-depth. The report is well-organized and suitable for sharing with management and regulators."
+      }
+    },
+    {
+      "transaction_id": 31894742,
+      "pattern": "STACK",
+      "layer1": {
+        "checks": {
+          "schema_valid": true,
+          "fields_complete": true,
+          "no_hallucination": true,
+          "no_aggressive_language": true,
+          "length_ok": true
+        },
+        "sections_found": {
+          "executive summary": true,
+          "subject information": true,
+          "suspicious activity": true,
+          "temporal analysis": true,
+          "network analysis": true,
+          "suspicion basis": true,
+          "recommended actions": true
+        },
+        "n_sections": 7,
+        "sections_detail": {
+          "executive summary": true,
+          "subject information": true,
+          "suspicious activity": true,
+          "temporal analysis": true,
+          "network analysis": true,
+          "suspicion basis": true,
+          "recommended actions": true
+        },
+        "word_count": 303,
+        "aggressive_phrases": [],
+        "pass_rate": 1.0,
+        "passed": true
+      },
+      "layer2": {
+        "coverage": 0.857,
+        "accuracy": 1.0,
+        "fabrication_rate": 0,
+        "fabricated_claims": [],
+        "evidence_items": [
+          "source_account",
+          "destination_account",
+          "pattern",
+          "amount",
+          "network_activity",
+          "related_transactions",
+          "model_reasoning"
+        ],
+        "evidence_mentioned": [
+          "source_account",
+          "destination_account",
+          "pattern",
+          "network_activity",
+          "related_transactions",
+          "model_reasoning"
+        ],
+        "evidence_missed": [
+          "amount"
+        ],
+        "overall_faithfulness": 0.943
+      },
+      "layer34": {
+        "scores": {
+          "compliance_score": 8,
+          "professional_tone": 4,
+          "actionability": 4,
+          "understandability": 5,
+          "insightfulness": 4,
+          "convincingness": 5,
+          "communicability": 5
+        },
+        "rationale": "The report generally follows the SAR format, addressing the 5 W's, but could be more detailed in the \"Who\" section. The language is mostly formal, but some phrases, such as \"high risk of money laundering,\" could be more objective. The recommendations are specific and practical but could be more proportionate to the evidence. The report is clear and easy to understand, providing some analytical insights into the STACK pattern. The evidence supports the conclusions, and the report is well-organized and professional, making it suitable for sharing with management and regulators.",
+        "raw": "COMPLIANCE_SCORE: 8\nPROFESSIONAL_TONE: 4\nACTIONABILITY: 4\nUNDERSTANDABILITY: 5\nINSIGHTFULNESS: 4\nCONVINCINGNESS: 5\nCOMMUNICABILITY: 5\nRATIONALE: \nThe report generally follows the SAR format, addressing the 5 W's, but could be more detailed in the \"Who\" section. The language is mostly formal, but some phrases, such as \"high risk of money laundering,\" could be more objective. The recommendations are specific and practical but could be more proportionate to the evidence. The report is clear and easy to understand, providing some analytical insights into the STACK pattern. The evidence supports the conclusions, and the report is well-organized and professional, making it suitable for sharing with management and regulators."
+      }
+    },
+    {
+      "transaction_id": 31897123,
+      "pattern": "GATHER-SCATTER",
+      "layer1": {
+        "checks": {
+          "schema_valid": true,
+          "fields_complete": true,
+          "no_hallucination": true,
+          "no_aggressive_language": true,
+          "length_ok": true
+        },
+        "sections_found": {
+          "executive summary": true,
+          "subject information": true,
+          "suspicious activity": true,
+          "temporal analysis": true,
+          "network analysis": true,
+          "suspicion basis": true,
+          "recommended actions": true
+        },
+        "n_sections": 7,
+        "sections_detail": {
+          "executive summary": true,
+          "subject information": true,
+          "suspicious activity": true,
+          "temporal analysis": true,
+          "network analysis": true,
+          "suspicion basis": true,
+          "recommended actions": true
+        },
+        "word_count": 346,
+        "aggressive_phrases": [],
+        "pass_rate": 1.0,
+        "passed": true
+      },
+      "layer2": {
+        "coverage": 0.857,
+        "accuracy": 1.0,
+        "fabrication_rate": 0,
+        "fabricated_claims": [],
+        "evidence_items": [
+          "source_account",
+          "destination_account",
+          "pattern",
+          "amount",
+          "network_activity",
+          "related_transactions",
+          "model_reasoning"
+        ],
+        "evidence_mentioned": [
+          "source_account",
+          "destination_account",
+          "pattern",
+          "network_activity",
+          "related_transactions",
+          "model_reasoning"
+        ],
+        "evidence_missed": [
+          "amount"
+        ],
+        "overall_faithfulness": 0.943
+      },
+      "layer34": {
+        "scores": {
+          "compliance_score": 8,
+          "professional_tone": 4,
+          "actionability": 4,
+          "understandability": 5,
+          "insightfulness": 4,
+          "convincingness": 4,
+          "communicability": 5
+        },
+        "rationale": "The report generally follows the SAR format, addressing the 5 W's, but could be more detailed in the \"Who\" section. The language is mostly professional, but some phrases, such as \"high risk of money laundering,\" could be more objective. The recommendations are specific and practical but could be more proportionate to the evidence. The report is clear and concise, making it easy to understand for a non-technical compliance investigator. It provides some analytical insights, but could be more detailed in explaining the significance of the evidence. The evidence generally supports the conclusions, but some connections between the evidence and conclusions could be more explicit. The report is well-organized and professional, making it suitable for sharing with management and regulators.",
+        "raw": "COMPLIANCE_SCORE: 8\nPROFESSIONAL_TONE: 4\nACTIONABILITY: 4\nUNDERSTANDABILITY: 5\nINSIGHTFULNESS: 4\nCONVINCINGNESS: 4\nCOMMUNICABILITY: 5\nRATIONALE: The report generally follows the SAR format, addressing the 5 W's, but could be more detailed in the \"Who\" section. The language is mostly professional, but some phrases, such as \"high risk of money laundering,\" could be more objective. The recommendations are specific and practical but could be more proportionate to the evidence. The report is clear and concise, making it easy to understand for a non-technical compliance investigator. It provides some analytical insights, but could be more detailed in explaining the significance of the evidence. The evidence generally supports the conclusions, but some connections between the evidence and conclusions could be more explicit. The report is well-organized and professional, making it suitable for sharing with management and regulators."
+      }
+    },
+    {
+      "transaction_id": 28058375,
+      "pattern": "STACK",
+      "layer1": {
+        "checks": {
+          "schema_valid": true,
+          "fields_complete": true,
+          "no_hallucination": true,
+          "no_aggressive_language": true,
+          "length_ok": true
+        },
+        "sections_found": {
+          "executive summary": true,
+          "subject information": true,
+          "suspicious activity": true,
+          "temporal analysis": true,
+          "network analysis": true,
+          "suspicion basis": true,
+          "recommended actions": true
+        },
+        "n_sections": 7,
+        "sections_detail": {
+          "executive summary": true,
+          "subject information": true,
+          "suspicious activity": true,
+          "temporal analysis": true,
+          "network analysis": true,
+          "suspicion basis": true,
+          "recommended actions": true
+        },
+        "word_count": 351,
+        "aggressive_phrases": [],
+        "pass_rate": 1.0,
+        "passed": true
+      },
+      "layer2": {
+        "coverage": 0.857,
+        "accuracy": 1.0,
+        "fabrication_rate": 0,
+        "fabricated_claims": [],
+        "evidence_items": [
+          "source_account",
+          "destination_account",
+          "pattern",
+          "amount",
+          "network_activity",
+          "related_transactions",
+          "model_reasoning"
+        ],
+        "evidence_mentioned": [
+          "source_account",
+          "destination_account",
+          "pattern",
+          "network_activity",
+          "related_transactions",
+          "model_reasoning"
+        ],
+        "evidence_missed": [
+          "amount"
+        ],
+        "overall_faithfulness": 0.943
+      },
+      "layer34": {
+        "scores": {
+          "compliance_score": 8,
+          "professional_tone": 4,
+          "actionability": 4,
+          "understandability": 4,
+          "insightfulness": 3,
+          "convincingness": 4,
+          "communicability": 4
+        },
+        "rationale": "The report generally follows the SAR format, addressing the 5 W's, but could be more detailed in some sections. The language is mostly professional, but some technical terms like \"FAN-IN\" and \"FAN-OUT\" might require additional explanation. The recommendations are specific and practical, but could be more proportionate to the evidence. The report provides clear language and connects evidence to meaning, but could be more insightful in explaining the significance of the STACK pattern. The evidence supports the conclusions, but the logical flow could be improved in some sections. The report is concise and well-organized, making it suitable for sharing with management and regulators.",
+        "raw": "COMPLIANCE_SCORE: 8\nPROFESSIONAL_TONE: 4\nACTIONABILITY: 4\nUNDERSTANDABILITY: 4\nINSIGHTFULNESS: 3\nCONVINCINGNESS: 4\nCOMMUNICABILITY: 4\nRATIONALE: The report generally follows the SAR format, addressing the 5 W's, but could be more detailed in some sections. The language is mostly professional, but some technical terms like \"FAN-IN\" and \"FAN-OUT\" might require additional explanation. The recommendations are specific and practical, but could be more proportionate to the evidence. The report provides clear language and connects evidence to meaning, but could be more insightful in explaining the significance of the STACK pattern. The evidence supports the conclusions, but the logical flow could be improved in some sections. The report is concise and well-organized, making it suitable for sharing with management and regulators."
+      }
+    },
+    {
+      "transaction_id": 27268710,
+      "pattern": "CYCLE",
+      "layer1": {
+        "checks": {
+          "schema_valid": true,
+          "fields_complete": true,
+          "no_hallucination": true,
+          "no_aggressive_language": true,
+          "length_ok": true
+        },
+        "sections_found": {
+          "executive summary": true,
+          "subject information": true,
+          "suspicious activity": true,
+          "temporal analysis": true,
+          "network analysis": true,
+          "suspicion basis": true,
+          "recommended actions": true
+        },
+        "n_sections": 7,
+        "sections_detail": {
+          "executive summary": true,
+          "subject information": true,
+          "suspicious activity": true,
+          "temporal analysis": true,
+          "network analysis": true,
+          "suspicion basis": true,
+          "recommended actions": true
+        },
+        "word_count": 360,
+        "aggressive_phrases": [],
+        "pass_rate": 1.0,
+        "passed": true
+      },
+      "layer2": {
+        "coverage": 0.857,
+        "accuracy": 1.0,
+        "fabrication_rate": 0,
+        "fabricated_claims": [],
+        "evidence_items": [
+          "source_account",
+          "destination_account",
+          "pattern",
+          "amount",
+          "network_activity",
+          "related_transactions",
+          "model_reasoning"
+        ],
+        "evidence_mentioned": [
+          "source_account",
+          "destination_account",
+          "pattern",
+          "network_activity",
+          "related_transactions",
+          "model_reasoning"
+        ],
+        "evidence_missed": [
+          "amount"
+        ],
+        "overall_faithfulness": 0.943
+      },
+      "layer34": {
+        "scores": {
+          "compliance_score": 8,
+          "professional_tone": 4,
+          "actionability": 4,
+          "understandability": 4,
+          "insightfulness": 3,
+          "convincingness": 4,
+          "communicability": 4
+        },
+        "rationale": "The report generally follows the SAR format, addressing the 5 W's, but could be more detailed in the \"Where\" section. The language is mostly professional, but some phrases, such as \"attempt to avoid detection,\" could be rephrased for objectivity. The recommendations are specific and practical but could be more proportionate to the evidence. The report provides clear language and connects evidence to meaning, but the analytical insights could be deeper. The evidence supports the conclusions, but the logical flow could be improved. The report is concise and well-organized, making it suitable for sharing with management and regulators.",
+        "raw": "COMPLIANCE_SCORE: 8\nPROFESSIONAL_TONE: 4\nACTIONABILITY: 4\nUNDERSTANDABILITY: 4\nINSIGHTFULNESS: 3\nCONVINCINGNESS: 4\nCOMMUNICABILITY: 4\nRATIONALE: The report generally follows the SAR format, addressing the 5 W's, but could be more detailed in the \"Where\" section. The language is mostly professional, but some phrases, such as \"attempt to avoid detection,\" could be rephrased for objectivity. The recommendations are specific and practical but could be more proportionate to the evidence. The report provides clear language and connects evidence to meaning, but the analytical insights could be deeper. The evidence supports the conclusions, but the logical flow could be improved. The report is concise and well-organized, making it suitable for sharing with management and regulators."
+      }
+    }
+  ]
+}

@@ -35,6 +35,15 @@ Engineering fixes:
   [FIX-GELU]  nn.GELU() module in Sequential
   [FIX-SCAT]  no offset in scatter (nodes share local indexing)
   [FIX-POS]   edge positions computed LOCALLY per batch via nonzero(mask)
+
+★ [EXPLAIN] v2 addition (this version):
+  FraudGTLayer now supports optional attention capture via the instance
+  attribute `capture_attention` (default False = zero change in behavior).
+  When set to True by explain_fraudgt.py, the pre-dropout attention weights
+  are stored in `self._attention_capture` as a side effect (the return
+  signature and all computations remain unchanged).
+  This enables the attention-based explanation layer without duplicating
+  any code. Verified: outputs are bit-identical with/without the flag.
 """
 
 import os, gc, json, time, logging, argparse, math
@@ -135,6 +144,11 @@ def best_f1_over_thresholds(truths, probas):
 
 # ==========================================
 # FraudGTLayer — faithful port of GTLayer / SparseNodeTransformer
+# ★ [EXPLAIN] v2: adds optional attention capture (additive, default OFF).
+#   When capture_attention=False (default): behavior 100% identical to v1.
+#   When True (set by explain_fraudgt.py): stores pre-dropout attention
+#   weights + position tracking for the explanation layer.
+#   Ref: [FraudGT, ICAIF'24, Eqs. 5-8] — attention mechanism.
 # ==========================================
 class FraudGTLayer(nn.Module):
     def __init__(self, dim_h, num_heads, metadata, layer_idx):
@@ -199,11 +213,22 @@ class FraudGTLayer(nn.Module):
         self.ff_dropout1 = nn.Dropout(GT["dropout"])
         self.ff_dropout2 = nn.Dropout(GT["dropout"])
 
+        # ★ [EXPLAIN] Attention capture flags — additive, default OFF.
+        # When False: identical behavior to the original (verified by tests).
+        # When True (set externally by explain_fraudgt.py): stores
+        # pre-dropout attention in self._attention_capture as a side effect.
+        self.capture_attention = False
+        self._attention_capture = None
+
     def forward(self, h_node, edge_index_dict, edge_attr_dict):
         """
         h_node: {node_type: [N, dim_h]}   edge_index_dict: {edge_type: [2, E]}
         edge_attr_dict: {edge_type: [E, dim_h]}
         Returns updated (h_node, edge_attr_dict) — nodes AND edges evolve.
+
+        ★ [EXPLAIN] When self.capture_attention=True, also stores the
+        pre-dropout attention weights in self._attention_capture as a
+        side effect (return signature and all computations unchanged).
         """
         h_in = {nt: h for nt, h in h_node.items()}
         edge_in = {et: ea for et, ea in edge_attr_dict.items()}
@@ -225,7 +250,10 @@ class FraudGTLayer(nn.Module):
         H, D = self.H, self.D
         L = next(iter(h.values())).shape[0]
 
-        qs, ks, vs, biases, gates, dsts, Ls = [], [], [], [], [], [], []
+        # ★ [EXPLAIN] added: srcs + edge_offsets for explanation position tracking
+        qs, ks, vs, biases, gates, dsts, srcs, Ls = [], [], [], [], [], [], [], []
+        edge_offsets = {}          # ★ [EXPLAIN] {et: (start, end)} in concat order
+        _cat_offset = 0            # ★ [EXPLAIN] running offset for position mapping
         for et, edge_index in edge_index_dict.items():
             src, dst = edge_index
             n_e = edge_index.shape[1]
@@ -235,7 +263,10 @@ class FraudGTLayer(nn.Module):
             biases.append(e_bias[et].view(-1, H, D).transpose(0, 1))
             gates.append(e_gate[et].view(-1, H, D).transpose(0, 1))
             dsts.append(dst)
+            srcs.append(src)                                     # ★ [EXPLAIN]
             Ls.append(n_e)
+            edge_offsets[et] = (_cat_offset, _cat_offset + n_e)  # ★ [EXPLAIN]
+            _cat_offset += n_e                                   # ★ [EXPLAIN]
 
         edge_q = torch.cat(qs, dim=1)     # [H, E_total, D]
         edge_k = torch.cat(ks, dim=1)
@@ -243,6 +274,7 @@ class FraudGTLayer(nn.Module):
         edge_b = torch.cat(biases, dim=1)
         edge_g = torch.cat(gates, dim=1)
         dst_flat = torch.cat(dsts)
+        src_flat = torch.cat(srcs)        # ★ [EXPLAIN] for source-side analysis
         E_total = edge_q.shape[1]
 
         # official: scores = (q ⊙ k + bias), scaled, clamped [-5, 5]
@@ -260,8 +292,21 @@ class FraudGTLayer(nn.Module):
         exp_scores = torch.exp(scores - max_scores)
         sum_exp = torch.zeros((H, L), device=scores.device)
         sum_exp.scatter_add_(1, expanded_dst, exp_scores)
-        attn = exp_scores / sum_exp.gather(1, expanded_dst)
-        attn = attn.unsqueeze(-1)
+        attn_2d = exp_scores / sum_exp.gather(1, expanded_dst)  # ★ renamed (pre-dropout)
+
+        # ★ [EXPLAIN] Capture attention BEFORE dropout (pure softmax output).
+        # Only active when capture_attention=True (default False = no overhead).
+        # Ref: [Jain & Wallace 2019] — attention as indicator, verified via
+        # occlusion tests in explain_fraudgt.py.
+        if self.capture_attention:
+            self._attention_capture = {
+                "attn": attn_2d.detach().cpu(),       # [H, E_total]
+                "dst_flat": dst_flat.detach().cpu(),   # [E_total]
+                "src_flat": src_flat.detach().cpu(),   # [E_total]
+                "edge_offsets": edge_offsets,           # {et: (start, end)}
+            }
+
+        attn = attn_2d.unsqueeze(-1)     # ★ same as original, uses attn_2d
         attn = self.dropout_attn(attn)
 
         out = torch.zeros((H, L, D), device=edge_q.device)
@@ -374,7 +419,7 @@ def main():
     ap.add_argument("--feature-set", choices=list(FEATURE_SETS), default=None)
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--epochs", type=int, default=EPOCHS)
-    ap.add_argument("--fanout", default="50,50")
+    ap.add_argument("--fanout", default="100,100")
     ap.add_argument("--batch-size", type=int, default=2048)
     ap.add_argument("--hidden", type=int, default=GT["dim_hidden"])
     ap.add_argument("--heads", type=int, default=GT["attn_heads"])
