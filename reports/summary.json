@@ -1,17 +1,18 @@
 {
   "model": "meta-llama/Llama-3.1-8B-Instruct",
-  "version": "v3",
-  "n_generated": 10,
-  "n_valid": 10,
+  "version": "v4",
+  "n_generated": 100,
+  "n_valid": 100,
   "n_aggressive": 0,
-  "avg_word_count": 332.0,
-  "elapsed_min": 2.0,
+  "avg_word_count": 450.0,
+  "elapsed_min": 25.6,
+  "architecture": "LLM as Narrator + Analytical Depth (v4)",
   "results": [
     {
       "transaction_id": 30816087,
       "pattern": "FAN-OUT",
       "is_valid": true,
-      "word_count": 346,
+      "word_count": 448,
       "sections": {
         "summary": true,
         "who": true,
@@ -25,6 +26,11 @@
         "mentions_source": true,
         "mentions_destination": true,
         "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
       },
       "has_aggressive_recommendations": false
     },
@@ -32,7 +38,7 @@
       "transaction_id": 30881761,
       "pattern": "STACK",
       "is_valid": true,
-      "word_count": 319,
+      "word_count": 443,
       "sections": {
         "summary": true,
         "who": true,
@@ -46,6 +52,11 @@
         "mentions_source": true,
         "mentions_destination": true,
         "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
       },
       "has_aggressive_recommendations": false
     },
@@ -53,7 +64,7 @@
       "transaction_id": 29296840,
       "pattern": "FAN-OUT",
       "is_valid": true,
-      "word_count": 303,
+      "word_count": 370,
       "sections": {
         "summary": true,
         "who": true,
@@ -67,6 +78,11 @@
         "mentions_source": true,
         "mentions_destination": true,
         "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
       },
       "has_aggressive_recommendations": false
     },
@@ -74,7 +90,7 @@
       "transaction_id": 30743455,
       "pattern": "RANDOM",
       "is_valid": true,
-      "word_count": 330,
+      "word_count": 464,
       "sections": {
         "summary": true,
         "who": true,
@@ -88,6 +104,11 @@
         "mentions_source": true,
         "mentions_destination": true,
         "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": false,
+        "has_consequence": false,
+        "has_significance": true
       },
       "has_aggressive_recommendations": false
     },
@@ -95,7 +116,7 @@
       "transaction_id": 31892801,
       "pattern": "CYCLE",
       "is_valid": true,
-      "word_count": 328,
+      "word_count": 437,
       "sections": {
         "summary": true,
         "who": true,
@@ -109,6 +130,11 @@
         "mentions_source": true,
         "mentions_destination": true,
         "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": false
       },
       "has_aggressive_recommendations": false
     },
@@ -116,7 +142,7 @@
       "transaction_id": 31893345,
       "pattern": "BIPARTITE",
       "is_valid": true,
-      "word_count": 333,
+      "word_count": 456,
       "sections": {
         "summary": true,
         "who": true,
@@ -130,6 +156,11 @@
         "mentions_source": true,
         "mentions_destination": true,
         "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": false
       },
       "has_aggressive_recommendations": false
     },
@@ -137,7 +168,7 @@
       "transaction_id": 31894742,
       "pattern": "STACK",
       "is_valid": true,
-      "word_count": 303,
+      "word_count": 451,
       "sections": {
         "summary": true,
         "who": true,
@@ -151,6 +182,11 @@
         "mentions_source": true,
         "mentions_destination": true,
         "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": false,
+        "has_consequence": true,
+        "has_significance": false
       },
       "has_aggressive_recommendations": false
     },
@@ -158,7 +194,7 @@
       "transaction_id": 31897123,
       "pattern": "GATHER-SCATTER",
       "is_valid": true,
-      "word_count": 346,
+      "word_count": 464,
       "sections": {
         "summary": true,
         "who": true,
@@ -172,6 +208,11 @@
         "mentions_source": true,
         "mentions_destination": true,
         "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
       },
       "has_aggressive_recommendations": false
     },
@@ -179,7 +220,7 @@
       "transaction_id": 28058375,
       "pattern": "STACK",
       "is_valid": true,
-      "word_count": 351,
+      "word_count": 458,
       "sections": {
         "summary": true,
         "who": true,
@@ -194,11 +235,2070 @@
         "mentions_destination": true,
         "mentions_pattern": true
       },
+      "analytical_depth": {
+        "has_risk_assessment": false,
+        "has_consequence": true,
+        "has_significance": true
+      },
       "has_aggressive_recommendations": false
     },
     {
       "transaction_id": 27268710,
       "pattern": "CYCLE",
+      "is_valid": true,
+      "word_count": 422,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 30149198,
+      "pattern": "NONE",
+      "is_valid": true,
+      "word_count": 452,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": false
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 26382317,
+      "pattern": "NONE",
+      "is_valid": true,
+      "word_count": 406,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": false
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 25839547,
+      "pattern": "STACK",
+      "is_valid": true,
+      "word_count": 443,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": false,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 30751777,
+      "pattern": "NONE",
+      "is_valid": true,
+      "word_count": 502,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": false
+      },
+      "analytical_depth": {
+        "has_risk_assessment": false,
+        "has_consequence": true,
+        "has_significance": false
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31894811,
+      "pattern": "FAN-IN",
+      "is_valid": true,
+      "word_count": 450,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": false
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31895930,
+      "pattern": "GATHER-SCATTER",
+      "is_valid": true,
+      "word_count": 486,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": false,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 26039837,
+      "pattern": "STACK",
+      "is_valid": true,
+      "word_count": 583,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": false,
+        "has_significance": false
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31897922,
+      "pattern": "GATHER-SCATTER",
+      "is_valid": true,
+      "word_count": 354,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": false,
+        "has_significance": false
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31891868,
+      "pattern": "NONE",
+      "is_valid": true,
+      "word_count": 357,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": false
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31891869,
+      "pattern": "CYCLE",
+      "is_valid": true,
+      "word_count": 434,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 25034310,
+      "pattern": "BIPARTITE",
+      "is_valid": true,
+      "word_count": 474,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": false
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 28498503,
+      "pattern": "SCATTER-GATHER",
+      "is_valid": true,
+      "word_count": 451,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 28007183,
+      "pattern": "GATHER-SCATTER",
+      "is_valid": true,
+      "word_count": 462,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": false,
+        "has_significance": false
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 26428719,
+      "pattern": "STACK",
+      "is_valid": true,
+      "word_count": 451,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 25914977,
+      "pattern": "FAN-IN",
+      "is_valid": true,
+      "word_count": 378,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": false,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 26020523,
+      "pattern": "FAN-IN",
+      "is_valid": true,
+      "word_count": 340,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": false,
+        "has_consequence": false,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 27863968,
+      "pattern": "FAN-IN",
+      "is_valid": true,
+      "word_count": 500,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": false,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 30489126,
+      "pattern": "FAN-IN",
+      "is_valid": true,
+      "word_count": 539,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": false,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31841757,
+      "pattern": "FAN-IN",
+      "is_valid": true,
+      "word_count": 487,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": false,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31893309,
+      "pattern": "FAN-IN",
+      "is_valid": true,
+      "word_count": 454,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": false,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31893559,
+      "pattern": "FAN-IN",
+      "is_valid": true,
+      "word_count": 390,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": false,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31893885,
+      "pattern": "FAN-IN",
+      "is_valid": true,
+      "word_count": 428,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31894705,
+      "pattern": "FAN-IN",
+      "is_valid": true,
+      "word_count": 483,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": false,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 27658449,
+      "pattern": "BIPARTITE",
+      "is_valid": true,
+      "word_count": 460,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 30398548,
+      "pattern": "FAN-OUT",
+      "is_valid": true,
+      "word_count": 380,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": false
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 25332878,
+      "pattern": "NONE",
+      "is_valid": true,
+      "word_count": 432,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": false
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": false,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31895654,
+      "pattern": "RANDOM",
+      "is_valid": true,
+      "word_count": 433,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31897921,
+      "pattern": "GATHER-SCATTER",
+      "is_valid": true,
+      "word_count": 517,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 27717512,
+      "pattern": "NONE",
+      "is_valid": true,
+      "word_count": 501,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": false
+      },
+      "analytical_depth": {
+        "has_risk_assessment": false,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31897817,
+      "pattern": "GATHER-SCATTER",
+      "is_valid": true,
+      "word_count": 460,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31898211,
+      "pattern": "GATHER-SCATTER",
+      "is_valid": true,
+      "word_count": 509,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31897896,
+      "pattern": "GATHER-SCATTER",
+      "is_valid": true,
+      "word_count": 426,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": false,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31896587,
+      "pattern": "GATHER-SCATTER",
+      "is_valid": true,
+      "word_count": 471,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 28396667,
+      "pattern": "NONE",
+      "is_valid": true,
+      "word_count": 457,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": false
+      },
+      "analytical_depth": {
+        "has_risk_assessment": false,
+        "has_consequence": false,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31892298,
+      "pattern": "FAN-IN",
+      "is_valid": true,
+      "word_count": 401,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": false,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 26029795,
+      "pattern": "CYCLE",
+      "is_valid": true,
+      "word_count": 403,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": false
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31892916,
+      "pattern": "BIPARTITE",
+      "is_valid": true,
+      "word_count": 345,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": false,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31892990,
+      "pattern": "RANDOM",
+      "is_valid": true,
+      "word_count": 480,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31894374,
+      "pattern": "STACK",
+      "is_valid": true,
+      "word_count": 414,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31896663,
+      "pattern": "GATHER-SCATTER",
+      "is_valid": true,
+      "word_count": 498,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": false,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31192522,
+      "pattern": "CYCLE",
+      "is_valid": true,
+      "word_count": 400,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31895197,
+      "pattern": "RANDOM",
+      "is_valid": true,
+      "word_count": 411,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": false
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31897524,
+      "pattern": "FAN-OUT",
+      "is_valid": true,
+      "word_count": 500,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": false
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31897939,
+      "pattern": "GATHER-SCATTER",
+      "is_valid": true,
+      "word_count": 430,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": false
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 26848094,
+      "pattern": "NONE",
+      "is_valid": true,
+      "word_count": 376,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": false
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 27289319,
+      "pattern": "NONE",
+      "is_valid": true,
+      "word_count": 453,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": false
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31095414,
+      "pattern": "NONE",
+      "is_valid": true,
+      "word_count": 439,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": false
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31892091,
+      "pattern": "STACK",
+      "is_valid": true,
+      "word_count": 440,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31897973,
+      "pattern": "GATHER-SCATTER",
+      "is_valid": true,
+      "word_count": 419,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": false,
+        "has_significance": false
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 27368381,
+      "pattern": "GATHER-SCATTER",
+      "is_valid": true,
+      "word_count": 569,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": false,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 30646503,
+      "pattern": "STACK",
+      "is_valid": true,
+      "word_count": 521,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": false,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31893418,
+      "pattern": "CYCLE",
+      "is_valid": true,
+      "word_count": 474,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": false
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31895659,
+      "pattern": "GATHER-SCATTER",
+      "is_valid": true,
+      "word_count": 409,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": false,
+        "has_significance": false
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 26626003,
+      "pattern": "GATHER-SCATTER",
+      "is_valid": true,
+      "word_count": 555,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31893914,
+      "pattern": "STACK",
+      "is_valid": true,
+      "word_count": 427,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31894550,
+      "pattern": "CYCLE",
+      "is_valid": true,
+      "word_count": 458,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": false,
+        "has_significance": false
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31897195,
+      "pattern": "GATHER-SCATTER",
+      "is_valid": true,
+      "word_count": 407,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31891908,
+      "pattern": "RANDOM",
+      "is_valid": true,
+      "word_count": 407,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": false,
+        "has_significance": false
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31892946,
+      "pattern": "BIPARTITE",
+      "is_valid": true,
+      "word_count": 407,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31897517,
+      "pattern": "GATHER-SCATTER",
+      "is_valid": true,
+      "word_count": 451,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": false
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31897590,
+      "pattern": "STACK",
+      "is_valid": true,
+      "word_count": 350,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 27344037,
+      "pattern": "GATHER-SCATTER",
+      "is_valid": true,
+      "word_count": 421,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 27964127,
+      "pattern": "CYCLE",
+      "is_valid": true,
+      "word_count": 395,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": false
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 28270180,
+      "pattern": "BIPARTITE",
+      "is_valid": true,
+      "word_count": 375,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 28529772,
+      "pattern": "CYCLE",
+      "is_valid": true,
+      "word_count": 441,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31894916,
+      "pattern": "GATHER-SCATTER",
+      "is_valid": true,
+      "word_count": 473,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": false,
+        "has_significance": false
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 26655800,
+      "pattern": "BIPARTITE",
+      "is_valid": true,
+      "word_count": 400,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": false
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 28242522,
+      "pattern": "RANDOM",
+      "is_valid": true,
+      "word_count": 405,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": false
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 30222523,
+      "pattern": "RANDOM",
+      "is_valid": true,
+      "word_count": 413,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": false,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31132191,
+      "pattern": "STACK",
+      "is_valid": true,
+      "word_count": 487,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31893964,
+      "pattern": "CYCLE",
+      "is_valid": true,
+      "word_count": 471,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": false
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 27981214,
+      "pattern": "GATHER-SCATTER",
+      "is_valid": true,
+      "word_count": 505,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 30795046,
+      "pattern": "STACK",
+      "is_valid": true,
+      "word_count": 530,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": false,
+        "has_significance": false
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31895293,
+      "pattern": "BIPARTITE",
+      "is_valid": true,
+      "word_count": 458,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": false,
+        "has_consequence": true,
+        "has_significance": false
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31896048,
+      "pattern": "GATHER-SCATTER",
+      "is_valid": true,
+      "word_count": 451,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 25974984,
+      "pattern": "GATHER-SCATTER",
+      "is_valid": true,
+      "word_count": 543,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 26863333,
+      "pattern": "GATHER-SCATTER",
+      "is_valid": true,
+      "word_count": 500,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": false,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 28425113,
+      "pattern": "CYCLE",
+      "is_valid": true,
+      "word_count": 500,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": false,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 29537963,
+      "pattern": "GATHER-SCATTER",
       "is_valid": true,
       "word_count": 360,
       "sections": {
@@ -214,6 +2314,297 @@
         "mentions_source": true,
         "mentions_destination": true,
         "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": false,
+        "has_significance": false
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31891300,
+      "pattern": "CYCLE",
+      "is_valid": true,
+      "word_count": 541,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31892969,
+      "pattern": "GATHER-SCATTER",
+      "is_valid": true,
+      "word_count": 382,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": false
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31893374,
+      "pattern": "GATHER-SCATTER",
+      "is_valid": true,
+      "word_count": 434,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31895440,
+      "pattern": "GATHER-SCATTER",
+      "is_valid": true,
+      "word_count": 477,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": false,
+        "has_consequence": false,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31895860,
+      "pattern": "GATHER-SCATTER",
+      "is_valid": true,
+      "word_count": 467,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": false,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31895934,
+      "pattern": "GATHER-SCATTER",
+      "is_valid": true,
+      "word_count": 526,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31897215,
+      "pattern": "STACK",
+      "is_valid": true,
+      "word_count": 465,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": false,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 31897440,
+      "pattern": "GATHER-SCATTER",
+      "is_valid": true,
+      "word_count": 491,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": false,
+        "has_significance": false
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 25134822,
+      "pattern": "FAN-OUT",
+      "is_valid": true,
+      "word_count": 450,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": true
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 27099149,
+      "pattern": "GATHER-SCATTER",
+      "is_valid": true,
+      "word_count": 505,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": false
+      },
+      "has_aggressive_recommendations": false
+    },
+    {
+      "transaction_id": 30893918,
+      "pattern": "GATHER-SCATTER",
+      "is_valid": true,
+      "word_count": 559,
+      "sections": {
+        "summary": true,
+        "who": true,
+        "what": true,
+        "when": true,
+        "where": true,
+        "why": true,
+        "actions": true
+      },
+      "faithfulness": {
+        "mentions_source": true,
+        "mentions_destination": true,
+        "mentions_pattern": true
+      },
+      "analytical_depth": {
+        "has_risk_assessment": true,
+        "has_consequence": true,
+        "has_significance": false
       },
       "has_aggressive_recommendations": false
     }

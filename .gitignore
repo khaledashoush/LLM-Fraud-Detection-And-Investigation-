@@ -1,21 +1,27 @@
-# Large data (reproduce via Preprocessing.py — download IBM AMLworld from Kaggle)
+# Data (too large for GitHub)
 processed_data/
-processed_data_*/
-gfp_temp_chunks/
+data/
 *.parquet
 *.pt
-*.npz
 *.ubj
-*.tar.gz
+*.npz
 
-# Checkpoints
-runs/**/model.pt
+# Generated outputs
+explanations/
+reports/
+runs/
+*.log
+
+# Model checkpoints
+*.model
+*.bin
+*.safetensors
 
 # Python
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
-nohup.out
-wandb/
 
-# Keep: all .py, .log, .out, metrics.json, config.json, *.csv
+# OS
+.DS_Store
+Thumbs.db
