@@ -8,7 +8,7 @@
 ![Status](https://img.shields.io/badge/status-active%20development-brightgreen)
 ![License](https://img.shields.io/badge/license-CDLA--Sharing--1.0-lightgrey)
 ![F1](https://img.shields.io/badge/F1%40thr-0.7291-success)
-![Reports](https://img.shields.io/badge/LLM%20reports-8.8%2F10-success)
+![Reports](https://img.shields.io/badge/LLM%20reports-ollama)
 
 ---
 
