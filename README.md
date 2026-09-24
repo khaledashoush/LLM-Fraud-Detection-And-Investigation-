@@ -12,9 +12,8 @@
 
 ---
 
-![AML Dashboard](UI_Images/Screenshot From 2026-09-24 13-44-03.png)
-![AML Dashboard](UI_Images/Screenshot From 2026-09-24 13-44-20.png)
-
+![AML Dashboard](UI_Images/Screenshot%20From%202026-09-24%2013-44-03.png)
+![AML Dashboard](UI_Images/Screenshot%20From%202026-09-24%2013-44-20.png)
 ---
 
 ## 📖 Table of Contents
