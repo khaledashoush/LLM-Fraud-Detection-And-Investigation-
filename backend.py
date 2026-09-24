@@ -1,18 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-backend.py — AML Intelligence API Server
-================================================================
-FastAPI backend that serves:
-  - Transaction list (8,957 flagged, paginated + filtered)
-  - Transaction details (explanation + reasoning)
-  - On-demand report generation (via vLLM + Llama)
-
-Runs on: http://localhost:8001
-Requires: vLLM running on port 8000
-
-Usage:
-  conda activate aml-research
-  python backend.py
+backend.py — AML Intelligence API Server (v2)
 """
 
 import os, json, time, math, re
@@ -30,6 +18,8 @@ from openai import OpenAI
 VLLM_BASE_URL = "http://localhost:8000/v1"
 VLLM_MODEL = "meta-llama/Llama-3.1-8B-Instruct"
 EXPL_PATH = "explanations/explanations.json"
+EDGE_META_PATH = "processed_data/edge_metadata.parquet"
+NODE_IDX_PATH = "processed_data/node_to_idx.parquet"
 REPORT_CACHE_DIR = "reports/cache"
 MAX_TOKENS = 800
 TEMPERATURE = 0.1
@@ -37,17 +27,18 @@ TEMPERATURE = 0.1
 os.makedirs(REPORT_CACHE_DIR, exist_ok=True)
 
 # ==========================================
-# LOAD DATA (startup — one time)
+# LOAD DATA
 # ==========================================
 print("=" * 50)
 print("  Loading data...")
 
+# ── Explanations ──
 with open(EXPL_PATH) as f:
     _raw = json.load(f)
 EXPLANATIONS = _raw.get("explanations", [])
 print(f"  ✓ Loaded {len(EXPLANATIONS):,} explanations")
 
-# Build indexed DataFrame for fast filtering
+# ── Build indexed DataFrame ──
 _rows = []
 for exp in EXPLANATIONS:
     pred = exp.get("prediction", {})
@@ -66,7 +57,7 @@ for exp in EXPLANATIONS:
 DF = pd.DataFrame(_rows)
 DF_LOOKUP = {e["transaction_id"]: e for e in EXPLANATIONS}
 
-# Pre-compute stats
+# ── Stats ──
 STATS = {
     "total_flagged": len(DF),
     "total_tp": int((DF["y_true"] == 1).sum()),
@@ -76,10 +67,40 @@ STATS = {
 }
 print(f"  ✓ Stats: {STATS['total_flagged']:,} flagged, "
       f"{len(STATS['pattern_distribution'])} patterns")
+
+# ── Edge metadata (for attempt-level graphs) ──
+try:
+    _edge_df = pd.read_parquet(EDGE_META_PATH)
+    _node_df = pd.read_parquet(NODE_IDX_PATH)
+    _idx_to_node = dict(zip(_node_df["idx"], _node_df["node"]))
+
+    _attempt_lookup = {}
+    _tx_attempt_map = {}
+
+    for _, row in _edge_df[_edge_df["attempt_id"].notna()].iterrows():
+        aid = int(row["attempt_id"])
+        tx_id = int(row["transaction_id"])
+        _tx_attempt_map[tx_id] = aid
+        if aid not in _attempt_lookup:
+            _attempt_lookup[aid] = []
+        _attempt_lookup[aid].append({
+            "tx_id": tx_id,
+            "src": _idx_to_node.get(int(row["src_idx"]), f"node_{int(row['src_idx'])}"),
+            "dst": _idx_to_node.get(int(row["dst_idx"]), f"node_{int(row['dst_idx'])}"),
+            "ts": str(row.get("Timestamp", "")),
+        })
+    print(f"  ✓ Loaded {len(_attempt_lookup):,} laundering attempts")
+except Exception as e:
+    print(f"  ⚠ Edge metadata not loaded: {e}")
+    _attempt_lookup = {}
+    _tx_attempt_map = {}
+    _edge_df = pd.DataFrame()
+    _idx_to_node = {}
+
 print("=" * 50)
 
 # ==========================================
-# REPORT GENERATION (LLM setup)
+# LLM REPORT GENERATION SETUP
 # ==========================================
 PATTERN_DESCRIPTIONS = {
     "SCATTER-GATHER": "Funds from one source are dispersed to intermediaries, then reconverge at a final destination",
@@ -149,6 +170,13 @@ SYSTEM_PROMPT = """You are an experienced AML (Anti-Money Laundering) compliance
 4. Do NOT use numeric model scores
 5. Assess risk explicitly: "this represents a HIGH risk because..."
 6. Keep under 450 words
+
+## IMPORTANT — Action Guidelines
+Risk levels (HIGH/MODERATE) are analytical context only.
+Do NOT translate them into aggressive actions.
+NEVER recommend freezing, blocking, or shutting down accounts.
+Always use "consider", "recommend", or "suggest" language.
+You are advising, not ordering.
 """
 
 
@@ -174,7 +202,6 @@ def build_evidence(exp):
     dst = details.get("dst_account", "unknown")
     y_proba = pred.get("y_proba", 0)
 
-    # Amount description
     lap = signals.get("log_amount_paid", 0)
     if lap > 14:
         amount_desc = f"a very large transaction (~{amount:,.0f} units)"
@@ -183,7 +210,6 @@ def build_evidence(exp):
     else:
         amount_desc = f"a moderate transaction (~{amount:,.0f} units)"
 
-    # Head component
     if head:
         dominant = max(["src", "edge", "dst"],
                        key=lambda k: head.get(f"{k}_drop", 0))
@@ -196,7 +222,6 @@ def build_evidence(exp):
     else:
         reasoning = "Model reasoning not available."
 
-    # Attention
     layers = attn.get("layers", [])
     top_in = []
     top_out = []
@@ -242,7 +267,7 @@ Do NOT just describe — ANALYZE."""
 # ==========================================
 # FASTAPI APP
 # ==========================================
-app = FastAPI(title="AML Intelligence API", version="1.0")
+app = FastAPI(title="AML Intelligence API", version="2.0")
 
 app.add_middleware(
     CORSMiddleware,
@@ -251,17 +276,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# In-memory report cache
 _report_cache = {}
 
 
-# ──────────────────────────────────────────
-# ENDPOINTS
-# ──────────────────────────────────────────
-
 @app.get("/api/stats")
 def get_stats():
-    """Overall statistics for the dashboard."""
     return STATS
 
 
@@ -274,10 +293,8 @@ def get_transactions(
     min_risk: float = Query(0.0, ge=0.0, le=1.0),
     max_risk: float = Query(1.0, ge=0.0, le=1.0),
 ):
-    """Paginated list of flagged transactions with filters."""
     df = DF.copy()
 
-    # Filters
     if pattern and pattern != "All":
         df = df[df["pattern"] == pattern]
     if search:
@@ -288,20 +305,15 @@ def get_transactions(
         )
         df = df[mask]
     df = df[(df["y_proba"] >= min_risk) & (df["y_proba"] <= max_risk)]
-
-    # Sort by risk (high → low)
     df = df.sort_values("y_proba", ascending=False)
 
-    # Pagination
     total = len(df)
     start = (page - 1) * per_page
     end = start + per_page
     page_df = df.iloc[start:end]
 
-    transactions = page_df.to_dict(orient="records")
-
     return {
-        "transactions": transactions,
+        "transactions": page_df.to_dict(orient="records"),
         "total": total,
         "page": page,
         "per_page": per_page,
@@ -311,7 +323,6 @@ def get_transactions(
 
 @app.get("/api/transaction/{tx_id}")
 def get_transaction(tx_id: int):
-    """Full details of a single transaction."""
     exp = DF_LOOKUP.get(tx_id)
     if not exp:
         raise HTTPException(status_code=404, detail=f"Transaction {tx_id} not found")
@@ -322,7 +333,6 @@ def get_transaction(tx_id: int):
     attn = exp.get("attention_analysis", {})
     head = exp.get("head_component_importance", {})
 
-    # Build top incoming/outgoing
     top_in = []
     top_out = []
     n_comp = 0
@@ -332,11 +342,16 @@ def get_transaction(tx_id: int):
         top_in = last.get("top_incoming", [])[:5]
         top_out = last.get("top_outgoing", [])[:5]
 
-    # Head component
     dominant = "unknown"
     if head:
         dominant = max(["src", "edge", "dst"],
                        key=lambda k: head.get(f"{k}_drop", 0))
+
+    # ── Attempt data (full network) ──
+    attempt_txs = []
+    attempt_id = _tx_attempt_map.get(tx_id)
+    if attempt_id is not None:
+        attempt_txs = _attempt_lookup.get(attempt_id, [])
 
     return {
         "transaction_id": tx_id,
@@ -360,17 +375,16 @@ def get_transaction(tx_id: int):
             "top_incoming": top_in,
             "top_outgoing": top_out,
         },
+        "attempt": attempt_txs,
     }
 
 
 @app.post("/api/generate_report/{tx_id}")
 def generate_report(tx_id: int):
-    """Generate a SAR report on-demand for a transaction."""
     exp = DF_LOOKUP.get(tx_id)
     if not exp:
         raise HTTPException(status_code=404, detail=f"Transaction {tx_id} not found")
 
-    # Check cache
     if tx_id in _report_cache:
         return {"report": _report_cache[tx_id], "source": "cache"}
 
@@ -381,7 +395,6 @@ def generate_report(tx_id: int):
         _report_cache[tx_id] = report
         return {"report": report, "source": "disk-cache"}
 
-    # Generate via vLLM
     evidence = build_evidence(exp)
 
     try:
@@ -403,7 +416,6 @@ def generate_report(tx_id: int):
                    f"Make sure vLLM is running on port 8000."
         )
 
-    # Save to cache
     _report_cache[tx_id] = report
     with open(cache_path, "w") as f:
         f.write(report)
@@ -416,12 +428,9 @@ def health():
     return {"status": "ok", "explanations_loaded": len(EXPLANATIONS)}
 
 
-# ==========================================
-# RUN
-# ==========================================
 if __name__ == "__main__":
     import uvicorn
-    print("\n🚀 Backend starting on http://localhost:8001")
+    print("\n🚀 Backend v2 starting on http://localhost:8001")
     print("   API docs: http://localhost:8001/docs")
     print("   Make sure vLLM is running on port 8000!\n")
     uvicorn.run(app, host="0.0.0.0", port=8001)
