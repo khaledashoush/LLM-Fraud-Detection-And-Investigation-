@@ -12,6 +12,11 @@
 
 ---
 
+![AML Dashboard](UI_Images/Screenshot From 2026-09-24 13-44-03.png)
+![AML Dashboard](UI_Images/Screenshot From 2026-09-24 13-44-20.png)
+
+---
+
 ## 📖 Table of Contents
 
 - [Overview](#-overview)
