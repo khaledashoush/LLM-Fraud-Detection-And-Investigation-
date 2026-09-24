@@ -420,11 +420,6 @@ False positives show the highest occlusion sensitivity (Δ=+0.035), indicating t
 - [x] Backend: FastAPI (`/api/stats`, `/api/transactions`, `/api/transaction/{id}`, `/api/generate_report/{id}`)
 - [x] Frontend: Streamlit investigator dashboard (search, filter, network graphs, PDF/Markdown export)
 
-**In Progress 🔄**
-
-- [ ] Insightfulness improvement (3.4 → 3.6/5 so far, target 4.0+)
-- [ ] FraudGT v3: 500 epochs targeting F1 > 0.75
-- [ ] Scale up report generation toward 500 reports for thesis statistics (100 done)
 
 **Planned 📋**
 
